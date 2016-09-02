@@ -5,11 +5,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author tungb
  */
-public class Student {
+public class Student implements Serializable{
     private int code;
     private String name;
     private double score;

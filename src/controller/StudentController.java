@@ -5,6 +5,7 @@
  */
 package controller;
 
+import io.IO;
 import java.util.ArrayList;
 import model.Student;
 
@@ -15,6 +16,7 @@ import model.Student;
 public class StudentController {
     private ArrayList<Student> studentList;
     private int studentCode;
+    private static final String STUDENT_FILE = "StudentOS.txt";
 
     public StudentController() {
         studentList = new ArrayList<>();
@@ -27,13 +29,17 @@ public class StudentController {
             studentList.add(
                     new Student(studentCode++, "S "+studentCode, studentCode)
             );
+        IO.WriteToFile(studentList, STUDENT_FILE);
     }
     
     public void removeLastStudent(){
         studentList.remove(studentList.size() - 1);
+        IO.WriteToFile(studentList, STUDENT_FILE);
     }
     
     public void showListStudent(){
+        studentList.clear();//clear before read
+        studentList = IO.ReadFromFile(STUDENT_FILE);
         System.out.println("List student:");
         for(Student s : studentList)
             System.out.println(s.toString());
