@@ -22,6 +22,19 @@ public class Student implements Serializable{
         this.score = score;
     }
 
+    public int getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    
     @Override
     public String toString() {
         return code + "\t" + name +"\t" + score;

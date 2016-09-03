@@ -33,8 +33,8 @@ public class IO {
             //write arr as Object
             oos.writeObject(arr);
             //close stream
-            fos.close();
             oos.close();
+            fos.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
@@ -53,8 +53,8 @@ public class IO {
             //read Object from file and cast to arrayList
             arrayList = (ArrayList<T>) ois.readObject();
             //close stream
-            fis.close();
             ois.close();
+            fis.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
